@@ -2,14 +2,26 @@ import React, { ReactElement, useCallback, useEffect, useState } from "react";
 import styles from "./Chat.module.scss";
 
 import tmi from "tmi.js";
-import { motion } from "framer-motion";
+import { AnimateSharedLayout, motion } from "framer-motion";
+
+import sanitizeHtml from "sanitize-html";
 
 interface Message {
   user?: string;
   message: string;
   messageHtml?: string;
   color?: string;
+  id: string;
 }
+
+const cleanHtml = (message: string) =>
+  sanitizeHtml(message, {
+    allowedTags: ["img"],
+    allowedAttributes: {
+      img: ["src"],
+    },
+    allowedIframeHostnames: ["www.static-cdn.jtvnw.net"],
+  });
 
 function getMessageHTML(message, { emotes }: { emotes: any }) {
   if (!emotes) return message;
@@ -45,7 +57,7 @@ function getMessageHTML(message, { emotes }: { emotes: any }) {
     message
   );
 
-  return messageHTML;
+  return cleanHtml(messageHTML);
 }
 
 export default function Chat(): ReactElement {
@@ -70,10 +82,14 @@ export default function Chat(): ReactElement {
       const arr = [
         ...m,
         {
-          message: message,
-          messageHtml: getMessageHTML(message, { emotes: tags["emotes"] }),
+          message: cleanHtml(message),
+          messageHtml:
+            tags["emotes"]?.length > 0
+              ? getMessageHTML(message, { emotes: tags["emotes"] })
+              : null,
           user: tags["display-name"],
           color: tags["color"],
+          id: tags["id"],
         },
       ];
 
@@ -91,23 +107,31 @@ export default function Chat(): ReactElement {
       className={chat_container}
     >
       <Title />
-      <div className={styles.messages}>
-        {messages.map(({ user, message, color, messageHtml }, index) => (
-          <div className={styles.message} key={index}>
-            <span style={{ color }} className={styles.user}>
-              {user}
-            </span>
-            {messageHtml ? (
-              <span
-                className={styles.message_content}
-                dangerouslySetInnerHTML={{ __html: messageHtml }}
-              />
-            ) : (
-              <span className={styles.message_content}>{message}</span>
-            )}
-          </div>
-        ))}
-      </div>
+      <AnimateSharedLayout>
+        <motion.div layout className={styles.messages}>
+          {messages.map(({ user, message, color, messageHtml, id }) => (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className={styles.message}
+              layout
+              key={id}
+            >
+              <span style={{ color }} className={styles.user}>
+                {user}
+              </span>
+              {messageHtml ? (
+                <span
+                  className={styles.message_content}
+                  dangerouslySetInnerHTML={{ __html: messageHtml }}
+                />
+              ) : (
+                <span className={styles.message_content}>{`${message}`}</span>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimateSharedLayout>
     </motion.div>
   );
 }
