@@ -9,14 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^7.7.0",
+    "@react-three/fiber": "^7.0.6",
+    "framer-motion": "^4.1.17",
+    "googleapis": "^85.0.0",
     "next": "11.1.0",
+    "next-seo": "^4.26.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-twitch-embed-video": "^3.0.1",
+    "sass": "^1.38.2",
+    "swiper": "^7.0.3",
+    "three": "^0.132.2",
+    "timeago.js": "^4.0.2",
+    "tmi.js": "^1.8.5"
   },
   "devDependencies": {
     "@types/react": "17.0.19",
+    "@types/tmi.js": "^1.7.2",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "next-transpile-modules": "^8.0.0",
     "typescript": "4.4.2"
   }
 }

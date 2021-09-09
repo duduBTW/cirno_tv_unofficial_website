@@ -1,0 +1,43 @@
+@import "../../global/variables";
+
+.rules_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  overflow-y: scroll;
+  max-height: 450px;
+  padding-right: 35px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #94c5cf;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #447abb;
+  }
+
+  & h3 {
+    padding: 0;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 46px;
+    /* identical to box height */
+
+    letter-spacing: 0.05em;
+  }
+}

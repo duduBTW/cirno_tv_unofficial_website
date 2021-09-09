@@ -1,0 +1,98 @@
+@import "../../global/variables";
+
+.pop_wrapper {
+  cursor: default;
+  position: absolute;
+
+  width: 300px;
+
+  bottom: 50px;
+  right: 0px;
+  background: white;
+
+  z-index: 4;
+
+  padding: 15px 0px;
+
+  &.blue {
+    background: $main;
+    z-index: 3;
+  }
+
+  & .menu_list {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    margin-bottom: 15px;
+
+    & a {
+      text-decoration: none;
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 29px;
+      letter-spacing: 0.1em;
+
+      color: #686868;
+    }
+
+    & li {
+      cursor: pointer;
+      padding: 15px 30px;
+
+      position: relative;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: #000000;
+
+        &::before {
+          background: $main;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+
+        top: 13px;
+        bottom: 13px;
+        width: 3px;
+        left: 10px;
+
+        background: transparent;
+      }
+    }
+  }
+
+  & .add {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 35px;
+
+    & img {
+      max-width: 100%;
+
+      // transition: filter 0.2s ease;
+      // &:hover {
+      //   transition: filter 0.2s ease;
+      //   filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.15));
+      // }
+    }
+  }
+}
+
+.back {
+  cursor: default;
+  pointer-events: all;
+  position: fixed;
+  inset: 0px;
+
+  background: rgba(68, 122, 187, 0.3);
+
+  z-index: 2;
+}

@@ -1,0 +1,10 @@
+.twitter_grid_wrapper {
+  height: 100%;
+
+  --swiper-navigation-size: 44px;
+  position: relative;
+
+  .swiper-slide {
+    width: auto;
+  }
+}

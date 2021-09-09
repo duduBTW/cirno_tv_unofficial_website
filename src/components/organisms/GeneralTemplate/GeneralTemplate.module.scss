@@ -1,0 +1,72 @@
+@import "../../global/variables";
+
+.general_container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  overflow: hidden;
+
+  grid-template-columns: 1fr 1fr 100px;
+  grid-template-rows: 2.8fr 4fr 2fr;
+  row-gap: 60px;
+
+  & .title {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+
+    align-self: flex-end;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 95px;
+    letter-spacing: 0.1em;
+
+    margin-bottom: 29px;
+
+    color: #686868;
+
+    position: relative;
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: -12px;
+      right: 114px;
+      left: 114px;
+
+      height: 1px;
+
+      background: #b8e0e9;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: 0px;
+      right: 70px;
+
+      width: 104px;
+      height: 1px;
+
+      background: #b8e0e9;
+    }
+  }
+
+  & .list {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 2;
+
+    position: relative;
+  }
+
+  & .menu {
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 2;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

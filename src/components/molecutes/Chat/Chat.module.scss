@@ -1,0 +1,76 @@
+@import "../../global/variables";
+
+.chat_container {
+  height: 100%;
+  width: 100%;
+
+  max-width: 538px;
+
+  background: #ffffff;
+  border: 1px solid #94c5cf;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 22px #e2ffff;
+
+  padding: 60px 60px 0px;
+
+  overflow: hidden;
+
+  & .title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 56px;
+    letter-spacing: 0.1em;
+
+    color: #94c5cf;
+
+    padding-left: 140px;
+    margin-bottom: 80px;
+
+    position: relative;
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: -10px;
+      left: 100px;
+      right: 220px;
+
+      height: 1px;
+      background: $line;
+    }
+  }
+
+  & .messages {
+    display: flex;
+    flex-direction: column-reverse;
+    scroll-behavior: smooth;
+
+    gap: 25px;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & .message {
+      //
+    }
+
+    & .user {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 162.8%;
+      padding-right: 15px;
+    }
+
+    & .message_content {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 162.8%;
+      color: #1f1f1f;
+    }
+  }
+}

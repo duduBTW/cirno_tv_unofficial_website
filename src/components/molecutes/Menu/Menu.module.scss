@@ -1,0 +1,48 @@
+@import "../../global/variables";
+
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  & .menu_item {
+    position: relative;
+    padding: 10px 0px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    & .label {
+      transition: color 0.3s ease 0s;
+
+      flex: 1;
+
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 29px;
+      text-align: right;
+      letter-spacing: 0.1em;
+
+      color: $text-color;
+    }
+
+    & .icon {
+      transition: transform 0.3s ease 0s;
+      transform: translateX(0px);
+    }
+
+    &:hover {
+      & .label {
+        transition: color 0.3s ease 0s;
+        color: $main;
+      }
+
+      & .icon {
+        transition: transform 0.3s ease 0s;
+        transform: translateX(10px);
+      }
+    }
+  }
+}
