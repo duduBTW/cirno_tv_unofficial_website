@@ -24,7 +24,7 @@ const Twitter: NextPage<Props> = ({ data }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   var result = await fetch(
     `https://api.twitter.com/2/users/35681300/tweets?tweet.fields=text,id,created_at&media.fields=url,preview_image_url&expansions=attachments.media_keys&exclude=retweets,replies&max_results=100`,
     {

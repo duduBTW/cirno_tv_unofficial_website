@@ -138,13 +138,21 @@ export default function Chat(): ReactElement {
 
 function Title() {
   const { title } = styles;
+  const first =
+    "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_6578c8c6c68a4645b840fe2b7c07e471/default/light/1.0";
+  const second =
+    "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_10567e4830694a73aa18243f2486398f/default/light/1.0";
+
+  const [image, setImage] = useState(first);
 
   return (
     <h3 className={title}>
       <span style={{ marginRight: 20 }}>Chat</span>
       <img
-        src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_6578c8c6c68a4645b840fe2b7c07e471/default/light/1.0"
-        alt=""
+        onMouseEnter={() => setImage(second)}
+        onMouseLeave={() => setImage(first)}
+        src={image}
+        alt="icon"
       />
     </h3>
   );

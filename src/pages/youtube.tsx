@@ -22,7 +22,7 @@ const Youtube: NextPage<Props> = ({ data }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let result: youtube_v3.Schema$PlaylistItem[] | undefined = undefined;
 
   const userY = await youtube("v3").channels.list({

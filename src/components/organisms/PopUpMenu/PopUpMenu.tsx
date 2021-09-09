@@ -108,7 +108,7 @@ export default function PopUpMenu({ open, onClose }: Props): ReactElement {
               ease: "backIn",
             }}
             className={`${pop_wrapper} ${blue}`}
-          ></motion.div>
+          />
         </>
       )}
     </AnimatePresence>
@@ -132,6 +132,10 @@ function AddtionalLinks() {
                 whileTap={{
                   scale: 0.95,
                   filter: "drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.15))",
+                }}
+                animate={{
+                  scale: 1,
+                  filter: "drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.15))",
                 }}
                 src={image}
                 alt={label}
