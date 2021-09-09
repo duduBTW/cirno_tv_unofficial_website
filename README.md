@@ -4,7 +4,9 @@
 
 ## environment variables
 
+```
 YOUTUBE_TOKEN=Youtube_key
 TWITTER_BEARER=Twitter_Authorization
+```
 
 ![cursed](https://static-cdn.jtvnw.net/emoticons/v2/303382360/default/light/3.0)
