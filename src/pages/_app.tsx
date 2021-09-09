@@ -9,21 +9,19 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <AnimatePresence>
-        <motion.div
-          initial={{ scale: 0.8, x: 150, rotateX: "90deg" }}
-          animate={{
-            scale: 1,
-            x: 0,
-            rotateX: "0deg",
-            opacity: 1,
-          }}
-          transition={{ type: "tween", duration: 0.5, ease: "backInOut" }}
-          key={pathname}
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        initial={{ scale: 0.8, x: 150, rotateX: "90deg" }}
+        animate={{
+          scale: 1,
+          x: 0,
+          rotateX: "0deg",
+          opacity: 1,
+        }}
+        transition={{ type: "tween", duration: 0.5, ease: "backInOut" }}
+        key={pathname}
+      >
+        <Component {...pageProps} />
+      </motion.div>
       <BlueIndicator />
     </>
   );
